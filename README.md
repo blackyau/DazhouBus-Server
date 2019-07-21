@@ -1,6 +1,6 @@
 # DazhouBus-Server
 
-达州实时公交 微信小程序 服务端,客户端请看 [这里](https://github.com/blackyau/DazhouBus-Client)
+达州实时公交 微信小程序 服务端，客户端请看 [DazhouBus-Client](https://github.com/blackyau/DazhouBus-Client)
 
 ## 获取最新主页数据
 
@@ -10,7 +10,7 @@
 python GetIndexData.py
 ```
 
-信息就会打印在控制台，直接复制粘贴到 [DazhouBus-Client/pages/index/index.js#L7](https://github.com/blackyau/DazhouBus-Client/blob/master/pages/index/index.js#L7) 即可。这里手动排序了以下，把K线全都置顶了，其他线路就由从小到大的顺序排列。
+信息就会打印在控制台，直接复制粘贴到 [DazhouBus-Client/pages/index/index.js#L7](https://github.com/blackyau/DazhouBus-Client/blob/master/pages/index/index.js#L7) 即可。这里手动排序了一下，把K线全都置顶了，其他线路就由从小到大的顺序排列。
 
 ## 搭建服务端
 
@@ -256,7 +256,7 @@ curl --location --request POST "http://ssgj.cecurs.com:32020/nextbusservice/stat
 			"labelNo": 1,
 			"lineNo": "111"
 		},
-        /*省略*/
+			/*省略*/
 		{
 			"busNo": "1132",
 			"cityCode": 6750,
