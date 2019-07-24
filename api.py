@@ -51,36 +51,42 @@ class Findlineinfo(Resource):
     def post(self):
         data = request.get_json()
         if data is None:
-            return {"status": 400}
+            return {"message": "请求失败,远端服务器异常", "status": 400}
         try:
+            if 'lineNo' not in data or 'isUpDown' not in data or 'cityCode' not in data:
+                return {"message": "参数不完整", "status": 500}
             out = get_lines(data['lineNo'], data['isUpDown'], data['cityCode'])
             return out.json()
         except Warning:
-            return 500
+            return {"message": "请求失败,本地异常", "status": 500}
 
 
 class Getlineinfo(Resource):
     def post(self):
         data = request.get_json()
         if data is None:
-            return {"status": 400}
+            return {"message": "请求失败,远端服务器异常", "status": 400}
         try:
+            if 'lineNo' not in data or 'isUpDown' not in data or 'cityCode' not in data:
+                return {"message": "参数不完整", "status": 500}
             out = get_line_info(data['lineNo'], data['isUpDown'], data['cityCode'])
             return out.json()
         except Warning:
-            return 500
+            return {"message": "请求失败,本地异常", "status": 500}
 
 
 class Runninginfo(Resource):
     def post(self):
         data = request.get_json()
         if data is None:
-            return {"status": 400}
+            return {"message": "请求失败,远端服务器异常", "status": 400}
         try:
+            if 'lineNo' not in data or 'isUpDown' not in data or 'cityCode' not in data:
+                return {"message": "参数不完整", "status": 500}
             out = get_running_info(data['lineNo'], data['isUpDown'], data['cityCode'])
             return out.json()
         except Warning:
-            return 500
+            return {"message": "请求失败,本地异常", "status": 500}
 
 
 api.add_resource(Findlineinfo, '/bus/findlineinfo')
